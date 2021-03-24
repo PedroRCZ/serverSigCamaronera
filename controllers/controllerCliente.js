@@ -10,6 +10,12 @@ const getCliente = async (req, res) => {
   res.status(200).json(response.rows);
 };
 
+const getClienById =  async (req, res) =>{
+  const response = await conn.query(`SELECT cliente_id, cliente_nombre, cliente_ciudad, cliente_direccion, cliente_telefono
+	FROM public.cliente where cliente_id = $1;`, [req.params.id]);
+  res.status(200).json(response.rows);
+}
+
 const createCliente = async(req, res) =>{
     const {cliente_id, cliente_nombre, 
         cliente_ciudad, cliente_direccion, cliente_telefono} = req.body;
@@ -22,7 +28,13 @@ const createCliente = async(req, res) =>{
         res.send(response);
 };
 
+const update = async(req, res) =>{
+
+}
+
+
+
 module.exports = {
-  getCliente, createCliente
+  getCliente, createCliente, getClienById
 }
   

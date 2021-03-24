@@ -12,7 +12,8 @@ app.use(express.urlencoded({extended: false}));
 conexion_pg.connect();
 
 app.use(require('./routes/visuzalizaVentas'));
-app.use(require('./routes/routeCliente'))
+app.use(require('./routes/routeCliente'));
+app.use(require('./routes/routerProveedor'));
 
 app.listen(4000, () =>{
     console.log('Server Ac tivo')
