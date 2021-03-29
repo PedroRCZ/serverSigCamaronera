@@ -6,6 +6,7 @@ const { getCliente, createCliente, getClienById } = require('../controllers/cont
 
 router.get('/cliente', getCliente );
 router.get('/cliente/:id', getClienById);
-router.post('/cliente', createCliente);
+router.get('/gatos/:id', getClienById);
+router.post('/cliente/', createCliente);
 
 module.exports = router;
