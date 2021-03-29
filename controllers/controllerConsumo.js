@@ -10,8 +10,8 @@ const createConsuno = async(req, res) =>{
     const {consumo_id, corrida_id, producto_id, consumo_cantidad} = req.body;
 
     const response = await conn.query(`INSERT INTO public.consumo(
-        consumo_id, corrida_id, producto_id, consumo_cantidad)
-        VALUES ($1, $2, $3, $4);`,[consumo_id, corrida_id, producto_id, consumo_cantidad]);
+        corrida_id, producto_id, consumo_cantidad)
+        VALUES ($1, $2, $3);`,[corrida_id, producto_id, consumo_cantidad]);
             console.log(response)
         res.send(response);
 };
