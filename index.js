@@ -13,7 +13,13 @@ conexion_pg.connect();
 
 app.use(require('./routes/visuzalizaVentas'));
 app.use(require('./routes/routeCliente'));
+app.use(require('./routes/routeProducto'));
 app.use(require('./routes/routerProveedor'));
+app.use(require('./routes/routeGasto'));
+app.use(require('./routes/routeCamaron'));
+app.use(require('./routes/routeConsumo'));
+
+
 
 app.listen(4000, () =>{
     console.log('Server Ac tivo')
