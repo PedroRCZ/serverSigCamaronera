@@ -19,14 +19,23 @@ const createGastos = async(req, res) =>{
         gasto_cantidad, gastos_monto} = req.body;
 
     const response = await conn.query(`INSERT INTO public.gasto(
-        gasto_id, producto_proveedor_id, gasto_descripcion, gasto_cantidad, gastos_monto)
-        VALUES ($1, $2, $3, $4, $5);`,[gasto_id, producto_proveedor_id, gasto_descripcion, 
+        producto_proveedor_id, gasto_descripcion, gasto_cantidad, gastos_monto)
+        VALUES ($1, $2, $3, $4);`,[producto_proveedor_id, gasto_descripcion, 
             gasto_cantidad, gastos_monto]);
-            console.log(response)
+            console.log(response) 
         res.send(response);
+}; 
+
+const Prodcreate = async (req, res) => {
+  const {producto_proveedor_id, proveedor_id, producto_id} = req.body;
+  const response = await conn.query(`INSERT INTO public.producto_proveedor(
+     proveedor_id, producto_id)
+    VALUES ($1, $2); `,[proveedor_id, producto_id]);
+  console.log(response)
+  res.send(response);
 };
 
 module.exports = {
-    getGastos, getGastosById, createGastos
+    getGastos, getGastosById, createGastos, Prodcreate
 }
   

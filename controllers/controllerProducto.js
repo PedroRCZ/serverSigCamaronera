@@ -39,16 +39,9 @@ const getProdExiste = async (req, res) => {
   res.status(200).json(response.rows);
 };
 
-const createProd = async (req, res) => {
-  const {producto_proveedor_id, proveedor_id, producto_id} = req.body;
-  const response = await conn.query(`INSERT INTO public.producto(
-    proveedor_id, producto_id)
-    VALUES ($1, $2); `,[proveedor_id, producto_id]);
-  console.log(response)
-  res.send(response);
-};
+
 
 module.exports = {
-  getProducto, createProducto, getProductoById, getProd, getProdExiste, createProd
+  getProducto, createProducto, getProductoById, getProd, getProdExiste
 }
   

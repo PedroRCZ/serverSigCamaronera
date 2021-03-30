@@ -15,9 +15,9 @@ const createFactura = async(req, res) =>{
     factura_precio_camaron, factura_subtotal, factura_iva, factura_precio_final, monto_peso} = req.body;
 
   const response = await conn.query(`INSERT INTO public.factura(
-    factura_id, factura_fecha, cliente_id, camaron_id, factura_precio_camaron, factura_subtotal, 
+     factura_fecha, cliente_id, camaron_id, factura_precio_camaron, factura_subtotal, 
     factura_iva, factura_precio_final, monto_peso)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,[ factura_id, factura_fecha, cliente_id, camaron_id, 
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,[ factura_fecha, cliente_id, camaron_id, 
         factura_precio_camaron, factura_subtotal, factura_iva, factura_precio_final, monto_peso]);
           console.log(response)
       res.send(response);
