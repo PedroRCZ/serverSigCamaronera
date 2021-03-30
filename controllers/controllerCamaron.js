@@ -22,6 +22,15 @@ const getCamaron = async (req, res) => {
           res.send(response);
   };
 
+  const decrementoCamaron = async(req, res) => {
+      const id = req.params.id;
+      const {camaron_id, camaron_talla, camaron_peso} = req.body;
+      const response = await conn.query(`UPDATE public.camaron
+                SET camaron_peso=$1 where camaron_id = $2`,[camaron_peso, id]);
+              console.log(response)
+          res.send(response);
+  }
+
 module.exports = {
-    getCamaron, createCamaron, getCamaronById
+    getCamaron, createCamaron, getCamaronById, decrementoCamaron
 }
