@@ -16,11 +16,11 @@ const getProductoById =  async (req, res) =>{
 }
 
 const createProducto = async(req, res) =>{
-    const {producto_id, producto_nombre, producto_precio} = req.body;
+    const { producto_nombre, producto_precio} = req.body;
 
     const response = await conn.query(`INSERT INTO public.producto(
-        producto_id, producto_nombre, producto_precio)
-        VALUES ($1, $2, $3);`,[producto_id, producto_nombre, producto_precio]);
+        producto_nombre, producto_precio)
+        VALUES ($1, $2);`,[ producto_nombre, producto_precio]);
             console.log(response)
         res.send(response);
 };

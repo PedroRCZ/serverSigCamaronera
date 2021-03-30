@@ -28,7 +28,22 @@ const getCorridaById =  async (req, res) =>{
   res.status(200).json(response.rows);
 }
 
+const getConsumoSumado = async(req, res) =>{
+  const response = await conn.query(`SELECT producto_id, SUM(consumo_cantidad) as Total
+  FROM  public.consumo group by producto_id`);
+    res.status(200).json(response.rows);
+};
+
+const getGastoSumado = async (req, res) => {
+  const response = await conn.query(`SELECT p.producto_id, pr.producto_nombre, SUM(g.gasto_cantidad) as Total
+  FROM   public.gasto as g inner join producto_proveedor p 
+  on g.producto_proveedor_id = p.producto_proveedor_id
+  inner join producto as pr on p.producto_id = pr.producto_id
+  group by p.producto_id, pr.producto_nombre`);
+  res.status(200).json(response.rows);
+};
+
 
   module.exports = {
-    getConsumo, createConsuno, getPiscinaById, getCorridaById
+    getConsumo, createConsuno, getPiscinaById, getCorridaById, getConsumoSumado, getGastoSumado
   }

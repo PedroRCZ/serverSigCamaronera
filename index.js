@@ -18,6 +18,7 @@ app.use(require('./routes/routerProveedor'));
 app.use(require('./routes/routeGasto'));
 app.use(require('./routes/routeCamaron'));
 app.use(require('./routes/routeConsumo'));
+app.use(require('./routes/routeLogin'));
 
 
 

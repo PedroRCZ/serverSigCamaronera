@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getGastos, getGastosById, createGastos, Prodcreate } = require('../controllers/controllerGastos');
+const { getGastos, getGastosById, createGastos, Prodcreate} = require('../controllers/controllerGastos');
 
 router.get('/gastos/', getGastos );
 router.get('/gastos/:id', getGastosById );

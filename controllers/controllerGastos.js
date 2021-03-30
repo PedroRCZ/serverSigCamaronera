@@ -12,7 +12,7 @@ const getGastosById =  async (req, res) =>{
   const response = await conn.query(`SELECT gasto_id, producto_proveedor_id, gasto_descripcion,
   gasto_cantidad, gastos_monto FROM public.gasto where gasto_id = $1;`, [req.params.id]);
   res.status(200).json(response.rows);
-}
+};
 
 const createGastos = async(req, res) =>{
     const {gasto_id, producto_proveedor_id, gasto_descripcion, 
@@ -34,6 +34,8 @@ const Prodcreate = async (req, res) => {
   console.log(response)
   res.send(response);
 };
+
+
 
 module.exports = {
     getGastos, getGastosById, createGastos, Prodcreate
