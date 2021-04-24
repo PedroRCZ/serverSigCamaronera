@@ -21,7 +21,6 @@ app.use(require('./routes/routeConsumo'));
 app.use(require('./routes/routeLogin'));
 
 
+var port=process.env.PORT || 4000;
+app.listen(port);
 
-app.listen(4000, () =>{
-    console.log('Server Ac tivo')
-})
